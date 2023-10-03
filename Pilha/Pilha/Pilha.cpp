@@ -87,12 +87,29 @@ void push()
 	cin >> novo->valor;
 	novo->prox = NULL;
 
+	if (topo == NULL) {
+		topo = novo;
+	}
 
+	else {  // proximo do novo = topo
+		novo->prox = topo;
+		topo = novo; 
+	}
+	
 }
 
 void pop()
 {
+	if (topo == NULL) {
+		cout << "Lista vazia !" << endl;
+	}
 
+	else { // próximo do topo = topo
+		cout << "Topo da pilha: " << topo->valor << endl;  
+		NO* paraExcluir = topo;
+		topo = topo->prox; 
+		free(paraExcluir);
+	}
 	
 
 }
